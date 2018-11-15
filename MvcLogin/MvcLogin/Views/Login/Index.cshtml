@@ -1,0 +1,83 @@
+﻿@model MvcLogin.Models.User
+@{
+    Layout = null;
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+     #login-div{
+         position:absolute;
+         left 40%;
+         top  40%;
+         border :1px solid #0094ff;
+         padding : 10px 10px;
+               }
+     .field-Validation-error{
+        color:red;
+     }
+     </style>
+</head>
+<body>
+    <div id="login-div"> 
+        @using (Html.BeginForm("Autherise","Login" , FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="text-decoration:underline" >User </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.UserName)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model =>model.UserName)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> </td>                 
+                   <td>
+                       @Html.ValidationMessageFor(model=> model.UserName) 
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.Password)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.Password)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> </td>
+                    <td>
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </td>
+                </tr>
+
+                <tr>
+                    
+                    <td colspan="2">
+                       <label class="field-Validation-error" >@Html.DisplayFor(model=>model.LoginErrorMessage) </label>
+                </tr>
+                <td> </td>
+                <td > 
+                <input type="submit" name="name" value="Login" />
+                <input type="reset"  name="name" value="Clear"/>               
+                
+                </td>>
+            </table>
+        }
+
+    </div>
+   
+</html>
