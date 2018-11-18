@@ -50,18 +50,8 @@ namespace MvcLogin.Controllers
                 
             return RedirectToAction("Index", "Login");
     }
-
-
-        [HttpPost]
-        public ActionResult AdminAction()
-        {
-            using (LoginDateBaseEntities1 dbmodel = new LoginDateBaseEntities1())
-            {
-                return View(dbmodel.Users.ToList());           }
-
-
-           
-            return RedirectToAction("Index", "Admin");
+        
+        
 
         }
 
@@ -69,4 +59,3 @@ namespace MvcLogin.Controllers
     }  
 
 
-}
