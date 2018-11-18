@@ -6,8 +6,16 @@
 
 <h2>Index</h2>
 
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+
+    <td>
+        <a href="@Url.Action("LogOut","Login")">LogOut</a>
+    </td>
+</p>
+<p>      
+
+    @Html.ActionLink("Create New User", "Create")
 </p>
 <table class="table">
     <tr>
@@ -41,5 +49,8 @@
         </td>
     </tr>
 }
+
+
+   
 
 </table>

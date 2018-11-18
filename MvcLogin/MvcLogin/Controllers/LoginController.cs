@@ -34,7 +34,7 @@ namespace MvcLogin.Controllers
                 {
                     Session["UserID"] = userDetails.UserID;
                     Session["UserName"] = userDetails.UserName;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home", "usermodel1.UserID");
 
                 }
             }
@@ -44,8 +44,7 @@ namespace MvcLogin.Controllers
         }
 
         public ActionResult LogOut()
-        {
-            int userid =(int) Session["UserID"];
+        {          
             Session.Abandon();
                 
             return RedirectToAction("Index", "Login");
