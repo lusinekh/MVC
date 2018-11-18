@@ -5,16 +5,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace MvcLogin.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+        // GET: Login 
         public ActionResult Index()
         {
-            return View();
+            return View();            
         }
-
 
         [HttpPost]
         public ActionResult Autherise(MvcLogin.Models.User usermodel1)
@@ -50,6 +50,20 @@ namespace MvcLogin.Controllers
                 
             return RedirectToAction("Index", "Login");
     }
+
+
+        [HttpPost]
+        public ActionResult AdminAction()
+        {
+            using (LoginDateBaseEntities1 dbmodel = new LoginDateBaseEntities1())
+            {
+                return View(dbmodel.Users.ToList());           }
+
+
+           
+            return RedirectToAction("Index", "Admin");
+
+        }
 
 
     }  
